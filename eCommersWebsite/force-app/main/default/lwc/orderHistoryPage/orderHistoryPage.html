@@ -1,0 +1,46 @@
+<template>
+    <div class="slds-grid slds-gutters" style="margin-top:1%; background-color: black;">
+        <h1 style="margin-bottom: 1%;margin-top: 0.2%; margin-left: 40%; font-size: x-large; color :white; text-align: center;">Order History</h1>
+   </div>
+  <div style="background-color: rgb(245, 240, 240);">
+    <div class="slds-grid slds-gutters" style="background-color: rgb(245, 240, 240);">
+        <header style="font-size: medium; font-weight: bold;">Order Number</header> 
+        <header style="font-size: medium;font-weight: bold;margin-left: 18%">Order Date</header> 
+        <header style="font-size: medium;font-weight: bold; margin-left: 19.5%;">Amount</header>
+        <header style="font-size: medium;font-weight: bold; margin-left: 15.5%">Status</header>
+        </div>
+    <div class="slds-grid slds-gutters" style="background-color: rgb(245, 240, 240);">
+    <template for:each={orderHistory.data} for:item="orHistory">
+        <li key={orHistory.Id} style="font-size: medium;">
+            {orHistory.OrderNumber}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{orHistory.EffectiveDate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{orHistory.TotalAmount}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{orHistory.Status}
+        </li>
+    </template>
+</div>
+
+<div class="slds-grid slds-gutters" style="margin-top:1%; background-color: rgb(245, 240, 240);">
+<header style="font-size: medium; font-weight: bold;margin-left: 9%">Product</header> 
+<header style="font-size: medium;font-weight: bold;margin-left: 9.2%">Quantity</header> 
+<header style="font-size: medium;font-weight: bold; margin-left: 11.5%">Amount</header>
+</div>
+<div class="slds-grid slds-gutters" style="background-color: rgb(245, 240, 240);">
+        <ul class="slds-m-around_medium">
+                <template for:each={cartData.data} for:item="cart">
+                <template for:each={cart.OpportunityLineItems} for:item="product" >
+                <li key={product.Id} style="font-size: medium;" >
+                    {product.Name} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {product.Quantity} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${product.UnitPrice}
+                </li>
+             
+                </template>
+            </template>
+      </ul>
+    </div>
+    </div>
+</template>

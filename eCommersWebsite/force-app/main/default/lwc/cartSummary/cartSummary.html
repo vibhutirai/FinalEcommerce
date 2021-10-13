@@ -1,0 +1,27 @@
+<template>
+    <div style="background-color: rgb(245, 240, 240);">
+    <div class="slds-grid slds-gutters" style="margin-top:1%; background-color: black;">
+         <h1 style="margin-top: 1% ;margin-bottom: 0.5% ; margin-left: 40%; font-size: x-large; color :white; text-align: center;">Cart Summary</h1>
+    </div>
+    <div class="slds-grid slds-gutters" style="background-color: rgb(245, 240, 240);">
+        <header style="font-size: medium; font-weight: bold;margin-left: 9%">Product</header> 
+        <header style="font-size: medium ;font-weight: bold;margin-left: 9.2%">Quantity</header> 
+        <header style="font-size: medium;font-weight: bold; margin-left: 11.5%">Amount</header>
+        </div>
+    <div class="slds-grid slds-gutters" style="background-color: rgb(245, 240, 240);">
+        <ul class="slds-m-around_medium">
+                <template for:each={oppCart.data} for:item="cart">
+                <template for:each={cart.OpportunityLineItems} for:item="product" >
+                <li key={product.Id} style="font-size: medium;" >
+                    {product.Name} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {product.Quantity} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${product.UnitPrice}
+                </li>
+                </template>
+            </template>
+      </ul>
+    </div>
+    <div style="background-color: rgb(245, 240, 240);">
+   <li>{sum.data}</li>
+        <lightning-button variant="brand" style=" margin-left: 70%;  margin-bottom: 1%;" label="Checkout" onclick={handleCheckout} ></lightning-button>
+    </div>
+</div>
+</template>
